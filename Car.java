@@ -107,3 +107,12 @@ public class Car implements Movable {
             direction = DOWN;
         }
     }}
+
+    interface Movable {
+        void move();
+    
+        void turnLeft();
+    
+        void turnRight();
+    
+    }
