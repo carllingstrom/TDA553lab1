@@ -1,16 +1,18 @@
- import static org.junit.Assert.*;
+import static org.junit.Assert.*;
 
+import com.sun.jdi.VoidValue;
 import org.junit.Before;
 import org.junit.Test;
+
 public class Junit {
     private Saab95 saab;
     private Volvo240 volvo;
-
+    
     @Before
     public void setup() {
         saab = new Saab95();
         volvo = new Volvo240();
-    }
+        
     @Test
     public void testStartEngine(){
         volvo.startEngine();
@@ -25,5 +27,3 @@ public class Junit {
         assertEquals(volvo.enginePower, volvo.getCurrentSpeed(), volvo.enginePower);
         assertEquals(saab.enginePower, saab.getCurrentSpeed(), saab.enginePower);
     }
-
-}
