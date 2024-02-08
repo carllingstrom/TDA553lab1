@@ -5,14 +5,18 @@ public class Car implements Movable {
     public double currentSpeed; // The current speed of the car
     public Color color; // Color of the car
     public String modelName; // The car model name
-
-    public Car(int nrDoors, Color color, double enginePower, String modelName) {
+    public double x;
+    public double y;
+    public Car(int nrDoors, Color color, double enginePower, String modelName, double x, double y) {
         this.nrDoors = nrDoors;
         this.color = color;
         this.enginePower = enginePower;
         this.modelName = modelName;
+        this.x = x;
+        this.y = y;
         stopEngine();
     }
+
     public int getNrDoors() {
         return nrDoors;
     }
@@ -41,6 +45,19 @@ public class Car implements Movable {
         currentSpeed = 0;
     }
 
+    public double getX(Car car) {
+        return x;
+    }
+
+    public double getY(Car car) {
+        return y;
+    }
+    public void setX(double x) {
+        this.x = x;
+    }
+    public void setY(double y) {
+        this.y = y;
+    }
     public double speedFactor() {
         return enginePower * 0.01;
     }
@@ -57,7 +74,7 @@ public class Car implements Movable {
             incrementSpeed(amount);
         }else{
             System.out.println("Input must be between 0 and 1");
-            }}
+        }}
 
 
     public void brake(double amount) {
@@ -68,10 +85,7 @@ public class Car implements Movable {
             System.out.println("Input must be between 0 and 1");
         }}
 
-    private double x;
-    private double y;
     private int direction;
-
     public static final int UP = 90;
     public static final int DOWN = 270;
     public static final int RIGHT = 0;
@@ -108,11 +122,3 @@ public class Car implements Movable {
         }
     }}
 
-    interface Movable {
-        void move();
-    
-        void turnLeft();
-    
-        void turnRight();
-    
-    }
